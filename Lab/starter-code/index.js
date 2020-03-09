@@ -3,6 +3,7 @@ const {
   isString,
   isBoolean,
   isArray,
+  isFunction
   isObject,
   castToNumber,
   castToString,
@@ -12,5 +13,6 @@ const {
 console.log(isNumber('3'));
 console.log(isString('Will'));
 console.log(isBoolean('True'));
-cosnsole.log(isArray)([]);
+console.log(isArray)([]);
+console.log(isFunction)(=>);
 console.log(castToBoolean('True'));

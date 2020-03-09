@@ -3,6 +3,8 @@ const {
   isString,
   isBoolean,
   isArray,
+  isObject,
+  isFunction,
   castToNumber,
   getCaster,
 } = require('../Lab/starter-code/types.js');
@@ -44,12 +46,21 @@ describe('array validation', () => {
 
 describe('object validation', () => {
   it('properly tells if a values is an object', () => {
-    expect(isArray([])).toBeTruthy();
-    expect(isArray('Will')).toBeFalsy();
-    expect(isArray(6)).toBeFalsy();
-    expect(isArray({})).toBeFalsy();
+    expect(isObject({})).toBeTruthy();
+    expect(isObject('Will')).toBeFalsy();
+    expect(isObject(6)).toBeFalsy();
+    expect(isObject([])).toBeFalsy();
   });
 }); 
+
+describe('function validation', () => {
+  it('properly tells if a values is an function', () => {
+    expect(isFunction(() => {})).toBeTruthy();
+    expect(isFunction('Will')).toBeFalsy();
+    expect(isFunction(6)).toBeFalsy();
+  });
+}); 
+
   
 describe('casters', () => {
   it('can cast values to a number', () => {
