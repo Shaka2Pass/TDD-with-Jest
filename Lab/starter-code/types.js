@@ -16,32 +16,16 @@ const castToNumber = val => {
 const castToString = val => {
   if(isString(val)) return val;
   const string = String(val);
-  if((!string)) throw new CastError(String, val);
+  if(typeof val === 'function' || !string || typeof val === 'object') throw new CastError(String, val);
   return string;
 };
 
 const castToBoolean = val => {
   if(isBoolean(val)) return val;
-  const boolean = Boolean(val);
-  if((!boolean)) throw new CastError(Number, val);
-  return boolean;
+  if(val === 'false' || val === 0) return false;
+  if(val === 'true' || val === 1) return true; 
+  throw new CastError(Boolean, val);
 };
-
-const castToArray = val => {
-  if(isArray(val)) return val;
-  const array = Array(val);
-  if((!array)) throw new CastError(Array, val);
-  return array;
-};
-
-const castToObject = val => {
-  if(isObject(val)) return val;
-  const array = Array(val);
-  if((!array)) throw new CastError(Array, val);
-  return array;
-};
-
-
 
 class CastError extends Error {
   constructor(Type, value) {
@@ -56,7 +40,6 @@ const casters = {
   Number: castToNumber,
   String: castToString,
   Boolean: castToBoolean,
-  Array: castToArray,
 };
 
 const getCaster = Type => {  
