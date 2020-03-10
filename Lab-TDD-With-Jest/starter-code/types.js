@@ -41,7 +41,7 @@ const casters = {
   String: castToString,
   Boolean: castToBoolean,
 };
-
+//This fucntion pull in the casters with the type and name above on lines 39 through 42.
 const getCaster = Type => {  
   return casters[Type.name] || null;
 };
