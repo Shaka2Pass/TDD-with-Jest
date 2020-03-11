@@ -27,5 +27,19 @@ describe('Validator', () => {
 
     expect(nameValidator.validate(dog)).toEqual('spot');
   });
+
+  it('can validate an object missing field', () => {
+    const dog = {
+      age: 5,
+      weight: '20 lbs'
+    };
+
+    expect(() => nameValidator.validate(dog)).toThrowError();
+  });
+
 });
+
+
+
+
  
