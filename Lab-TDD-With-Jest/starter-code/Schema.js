@@ -1,4 +1,5 @@
-const Validator = require('./lib/Validator');
+const Validator = require('../starter-code/Validator.js');
+
 const schema = {
   name: {
     type: String,
