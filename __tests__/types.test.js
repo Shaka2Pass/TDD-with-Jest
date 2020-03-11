@@ -9,7 +9,7 @@ const {
   castToString,
   castToBoolean,
   getCaster,
-} = require('../Lab/starter-code/types.js');
+} = require('../Lab-TDD-With-Jest/starter-code/types.js');
 
 // Run is Test
 describe('basic validation', () => {
