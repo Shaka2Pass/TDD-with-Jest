@@ -14,7 +14,7 @@ module.exports = class Validator {
     if(this.configuration.required && !(this.field in obj)) {
       throw new Error(`Missing required field >>${this.field}<<`);
     }
-
+    //configuration is not required and no field throw error.
     if(!this.configuration.required && !(this.field in obj)){
       return null;
     }
