@@ -68,6 +68,17 @@ describe('Validator', () => {
     expect(() => nameValidator.validate(dog)).toThrowError();
   });
 
+  it('not required and field there right type', () => {
+    const dog = {
+      name: 'spot',
+      age: 5,
+      weight: '20 lbs',
+      height: '15 ft',
+    };
+
+    expect(nameValidator.validate(dog)).toEqual('spot');
+  });
+  
 });
 
 
