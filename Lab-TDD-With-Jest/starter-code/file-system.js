@@ -8,11 +8,26 @@ const mkdirp = path => {
 };
 
 const writeJSON = (path, obj) => {
-  return fs.writeFile(path, JSON.stringify(obj));
+  return fs.writeFile(path, JSON.stringify(obj))
+    .then(() => obj);
+};
+
+const readJSON = path => {
+  return fs.readFile(path)
+    .then(contents => JSON.parse(contents));
+};
+
+const readDirectoryJSON = path => {
+  return fs.readdir(path)
+    .then(files => {
+      return Promise.all(files.map(file => readJSON(`${path}/${file}`)));
+    });
 };
 
 module.exports = {
   mkdirp,
-  writeJSON
+  writeJSON,
+  readJSON,
+  readDirectoryJSON
 };
 
