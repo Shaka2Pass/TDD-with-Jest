@@ -4,7 +4,7 @@ const fs = require ('fs').promises;
 fs.mkdir('./will/home/file/notes', { recursive: true });
 
 const mkdirp = path => {
-  return fs.mkdir(path, './will/home/file/notes', { recursive: true });
+  return fs.mkdir(path, { recursive: true });
 };
 
 const writeJSON = (path, obj) => {
@@ -32,7 +32,10 @@ const updateJSON = (path, obj) => {
     });
 };
 
-const deleteFile = path => fs.unlink(path);
+const deleteFile = path => readJSON(path)
+  .then(result => {fs.unlink(path);
+    return result;
+  });
 
 module.exports = {
   mkdirp,
