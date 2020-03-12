@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1583961586348" clover="3.2.0">
-  <project timestamp="1583961586348" name="All files">
-    <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="13" coveredelements="13" complexity="0" loc="9" ncloc="9" packages="1" files="1" classes="1"/>
-    <file name="Schema.js" path="C:\Users\willi\alchemy\Career-Track-401\TDD-with-Jest\Lab-TDD-With-Jest\starter-code\Schema.js">
-      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <line num="1" count="1" type="stmt"/>
+<coverage generated="1583974566884" clover="3.2.0">
+  <project timestamp="1583974566884" name="All files">
+    <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1" elements="9" coveredelements="7" complexity="0" loc="7" ncloc="7" packages="1" files="1" classes="1"/>
+    <file name="file-system.js" path="C:\Users\willi\alchemy\Career-Track-401\TDD-with-Jest\Lab-TDD-With-Jest\starter-code\file-system.js">
+      <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <line num="2" count="1" type="stmt"/>
       <line num="4" count="1" type="stmt"/>
-      <line num="6" count="2" type="stmt"/>
-      <line num="7" count="6" type="stmt"/>
-      <line num="13" count="2" type="stmt"/>
-      <line num="14" count="2" type="stmt"/>
-      <line num="15" count="4" type="stmt"/>
-      <line num="16" count="4" type="stmt"/>
-      <line num="18" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
