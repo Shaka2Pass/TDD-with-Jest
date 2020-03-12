@@ -9,6 +9,8 @@ const Schema = require('../Lab-TDD-With-Jest/starter-code/Schema');
 const Model = require('../Lab-TDD-With-Jest/starter-code/Model');
 
 //A model needs a schema to check against. The Schema defines the patter we expect. I.e. A name will be required and the input type will be a string. 
+
+
 describe('Model class', () => {
   it('creates a new document', () => {
     const schema = new Schema({
@@ -153,6 +155,45 @@ describe('Model class', () => {
         });
       });
   });
+
+  it('finds a directory in JSON', () => {
+    const schema = new Schema({
+      name: {
+        type: String,
+        required: true
+      },
+      age: {
+        type: Number,
+        required: true
+      },
+      weight: {
+        type: String
+      }
+    });
+
+    const Dog = new Model('Dog', schema);
+    //delete will expect to see the dog i.e. point to the dog that you created. 
+    return Dog
+      .create({
+        name: 'spot',
+        age: 5,
+        weight: '20 lbs'
+      })
+      .then(() => {
+        return Dog
+          .find();
+      })
+      //look at .toContainEqual in docs expecting the object.
+      .then(foundDog => {
+        expect(foundDog).toContainEqual({
+          _id: expect.any(String),
+          name: 'spot',
+          age: 5,
+          weight: '20 lbs'
+        });
+      });
+  });
+  
 });
 
 

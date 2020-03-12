@@ -34,6 +34,9 @@ module.exports = class Model {
   findByIdAndDelete(id) {
     return deleteFile(`${this.modelName}/${id}`);
   }
+  find() {
+    return readDirectoryJSON(`${this.modelName}`);
+  }
 
 
 
