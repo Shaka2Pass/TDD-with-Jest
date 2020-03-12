@@ -4,7 +4,9 @@ const {
   mkdirp,
   writeJSON,
   readJSON,
-  readDirectoryJSON
+  readDirectoryJSON,
+  updateJSON,
+  deleteFile
 } = require('../Lab-TDD-With-Jest/starter-code/file-system');
 
 jest.mock('fs', () => ({
@@ -13,8 +15,11 @@ jest.mock('fs', () => ({
     writeFile: jest.fn(()=>Promise.resolve()),
     readFile: jest.fn(()=>Promise.resolve('{"name":"bob"}')),
     readdir: jest.fn(()=>Promise.resolve(['test.json', 'test2.json'])),
+    unlink: jest.fn(() => Promise.resolve())
   }
 }));
+
+
 
 describe('ensure file system works', () => {
   it('makes directory and all parent directories', () => {
@@ -66,6 +71,30 @@ it('reads a directory of json', () => {
       ]);
     });
 });
+
+it('updates a files json', () => {
+  return updateJSON('./test.json', { name: 'rover' })
+    .then(data => {
+      // readFile gets called
+      expect(fs.readFile)
+        .toHaveBeenCalledWith('./test.json');
+      // writeFile gets called
+      expect(fs.writeFile)
+        .toHaveBeenCalledWith('./test.json', '{"name":"rover"}');
+      // data -> { name: 'rover' }
+      expect(data).toEqual({
+        name: 'rover'
+      });
+    });
+});
+
+it('deletes a json file', () => {
+  return deleteFile('./test.json')
+    .then(() => {
+      expect(fs.unlink).toHaveBeenCalledWith('./test.json');
+    });
+});
+
 
 
 

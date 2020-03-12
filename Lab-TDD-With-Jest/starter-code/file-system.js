@@ -24,10 +24,22 @@ const readDirectoryJSON = path => {
     });
 };
 
+const updateJSON = (path, obj) => {
+  return readJSON(path)
+    .then(json => {
+      const updatedJSON = { ...json, ...obj };
+      return writeJSON(path, updatedJSON);
+    });
+};
+
+const deleteFile = path => fs.unlink(path);
+
 module.exports = {
   mkdirp,
   writeJSON,
   readJSON,
-  readDirectoryJSON
+  readDirectoryJSON,
+  updateJSON,
+  deleteFile
 };
 
