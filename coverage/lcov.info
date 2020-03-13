@@ -14,7 +14,6 @@ FNDA:1,(anonymous_2)
 FNDA:1,(anonymous_3)
 FNDA:1,(anonymous_4)
 FNDA:1,(anonymous_5)
-DA:1,1
 DA:2,1
 DA:10,1
 DA:13,1
@@ -28,8 +27,8 @@ DA:27,1
 DA:31,1
 DA:35,1
 DA:38,1
-LF:14
-LH:14
+LF:13
+LH:13
 BRF:0
 BRH:0
 end_of_record
