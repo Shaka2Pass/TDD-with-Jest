@@ -68,9 +68,9 @@ describe('Model class', () => {
         age: 5,
         weight: '20 lbs'
       })
-      .then(dog => {
+      .then(cat => {
         return Dog
-          .findByIdAndUpdate(dog._id, { name: 'rover' });
+          .findByIdAndUpdate(cat._id, { name: 'rover' });
       })
       .then(updatedDog => {
         expect(updatedDog).toEqual({
